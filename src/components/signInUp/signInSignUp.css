@@ -1,0 +1,219 @@
+.container:before{
+    content: "";
+    position: absolute;
+    top: -10%;
+    right: 48%;
+    transform: translateY(-50%);
+    width: 2000px;
+    height: 2000px;
+    background: linear-gradient(-45deg,#4481eb,#0fbefe);
+    border-radius: 50%;
+    transition: 1.8s ease-in-out;
+    z-index: 6;
+
+}
+.panel{
+    display: flex;
+    text-align: center;
+    flex-direction: column ;
+    justify-content: space-around;
+}
+.content{
+    color: #fff;
+    display: flex;
+    flex-direction: column !important;
+    align-items: center;
+    justify-content: center;
+    height: 50% ;
+    transition: 0.9s 0.5s ease-in-out;
+    z-index:7;
+
+
+}
+
+figure img{
+    width: 100%;
+    height: 100%;
+    transition: 1.1s 0.3s ease-in-out;
+    
+
+
+}
+figure{
+    transition: 1.1s 0.3s ease-in-out;
+
+}
+
+.leftPanel .content,.leftPanel figure{
+transform: translateX(800px);
+}
+
+
+form{
+    display: flex;
+    flex-direction: column;
+    text-align: center;
+    position: absolute;
+    right: 0;
+    top: 0;
+    width: 100%;
+    align-items: center;
+    transition: 0.2s 0.7s ease-in-out;
+}
+form.signInForm h2,form.signUpForm h2{
+    color: #444;
+    font-size: 1.8rem;
+
+}
+form.signInForm button,form.SignUpForm button{
+    width:25%;
+    padding:0.9rem 1.3rem;
+    min-width: 150px;
+}
+form.signInForm .inputContainer,form.SignUpForm .inputContainer{
+min-width: 50%;
+}
+
+form.signInForm{
+    z-index: 2;
+    
+}
+form.SignUpForm{
+    z-index: 1;
+    opacity: 0;
+    
+}
+
+/*sign Up mode*/
+
+.container.sign-up-mode:before{
+    
+    transform: translate(100%,-50%);
+    right: 52%;
+}
+
+.container.sign-up-mode .rightPanel figure,
+.container.sign-up-mode .rightPanel .content{
+    transform: translateX(-800px);
+}
+
+.container.sign-up-mode .leftPanel figure
+,.container.sign-up-mode .leftPanel .content{
+    transform: translateX(0);
+
+}
+.container.sign-up-mode .signInSignUp{
+ right: 50%; 
+ left: initial;  
+}
+
+.container.sign-up-mode form.signInForm{
+    z-index: 1;
+    opacity: 0;
+    
+}
+.container.sign-up-mode form.SignUpForm{
+    z-index: 2;
+    opacity: 1;
+    
+}
+
+/*responsive*/
+@media only screen and (max-width:670px){
+    form{
+        padding: 1.5rem 0;
+    }
+    .panels{
+        height: initial;
+        flex-direction: column !important;
+    }
+    .container .panels .rightPanel{
+        transform: translateY(-100%);
+        z-index: 8;
+    }
+
+    .panel{
+        flex-direction: row-reverse;
+        height: 50%;
+        width: 100%;
+    }
+
+    .panel .content{
+       padding:  1.5rem 1rem;
+    }
+    .panel .content h2{
+        font-size: 1.5rem;
+    }   
+    .panel .content p{
+        font-size:1rem;
+    }
+    .signInSignUp form h2{
+font-size: 1.5rem;
+    }
+    .container:before{
+        width: 1500px ;
+        height: 1500px ;
+        left: 30%;
+        bottom: 68%;
+        transform: translateX(-50%);
+        right: initial;
+        top: initial;
+        transition: 2s ease-in-out;
+
+    }
+
+.container .leftPanel .content,.container .leftPanel figure{
+    transform: translateY(700px);
+
+}
+
+.container.sign-up-mode .leftPanel figure,.container.sign-up-mode .leftPanel .content{
+transform:translateY(500px);
+
+}
+
+.container.sign-up-mode .rightPanel .content,
+.container.sign-up-mode .rightPanel figure{
+transform:translateY(-500px);
+}
+    
+    .signInSignUp{
+        width: 100%;
+        left: 50%;
+        top: 95%;
+        transform: translate(-50%,-100%);
+        margin-top: 50px;
+        transition: 1s 1s ease-in-out;
+ 
+    }
+
+   .panel figure img{
+        width: 200px; 
+    }
+        
+        .container.sign-up-mode:before{
+            transform: translate(-50%,100%);
+            bottom: 32%;
+            right: initial;
+        }
+    
+        
+        .container.sign-up-mode .signInSignUp{
+            top: 5%;
+            transform: translate(-50%,0);
+            right: 0%;
+        }
+}
+
+@media only screen and (max-width:480px){
+
+    .panel .content h2{
+        font-size: 1.1rem;
+    }   
+    .panel .content p{
+        font-size: 0.85rem;
+    }
+    .signInSignUp form h2{
+font-size: 1.5rem;
+    }
+}

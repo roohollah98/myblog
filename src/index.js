@@ -9,6 +9,7 @@ import { BrowserRouter } from "react-router-dom";
 import rtlPlugin from "stylis-plugin-rtl";
 import { CacheProvider } from "@emotion/react";
 import createCache from "@emotion/cache";
+import FormContextProvider from "./components/context/formcontext";
 
 const client=new ApolloClient({
     uri:process.env.REACT_APP_URI,
@@ -25,10 +26,13 @@ root.render(<ApolloProvider client={client}>
 <ThemeProvider theme={theme}>
 
   <CacheProvider value={cacheRtl}>
+  <FormContextProvider>
+
 <BrowserRouter>
 
 <App />
 </BrowserRouter>
+  </FormContextProvider>
    </CacheProvider>
 </ThemeProvider>
 </ApolloProvider>

@@ -1,28 +1,55 @@
-import React from "react";
+import React, { useContext } from "react";
 import AppBar from "@mui/material/AppBar";
-import Box from "@mui/material/Box";
 import Toolbar from "@mui/material/Toolbar";
 import Typography from "@mui/material/Typography";
-import Button from "@mui/material/Button";
-import IconButton from "@mui/material/IconButton";
+
 import AutoStoriesIcon from "@mui/icons-material/AutoStories";
-import { Container } from "@mui/material";
-import { Link } from "react-router-dom";
+import { Button, Container } from "@mui/material";
+import { Link, useNavigate, useParams } from "react-router-dom";
+import { FormContext } from "../context/formcontext";
 
 export default function Header() {
+  const navigate = useNavigate();
+const {setSignUpMode}=useContext(FormContext);
+
   return (
     <AppBar position="sticky">
       <Container maxWidth="lg">
-        <Toolbar>
-          <Link style={{textDecoration:"none",color:"#fff",width:"100%"}} to="/">
-            <Typography variant="h5" component="h1" flex={1}>
+        <Toolbar style={{ display: "flex", justifyContent: "space-between" }}>
+          <Link
+            style={{
+              textDecoration: "none",
+              color: "#fff",
+              display: "flex",
+              alignItems: "center",
+            }}
+            to="/"
+          >
+            <AutoStoriesIcon />
+            <Typography
+              variant="h5"
+              component="h1"
+              style={{ marginRight: "7px" }}
+            >
               ایران بلاگ
             </Typography>
           </Link>
 
-          <Link style={{ color: "#fff" }} to="/">
-            <AutoStoriesIcon />
-          </Link>
+          <nav>
+            <Button
+              sx={{ color: "#fff", border: "1px solid #fff" }}
+              variant="outlined"
+              onClick={() => {
+                navigate("/signInSignUp");
+                setSignUpMode(true);
+              }}
+            >
+              ثبت نام
+            </Button>
+            <Link onClick={()=>{setSignUpMode(false)}} to="/signInSignUp" style={{ margin: "0 10px" }} >
+              ورود
+            </Link>
+          </nav>
         </Toolbar>
       </Container>
     </AppBar>
