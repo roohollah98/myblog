@@ -1,9 +1,11 @@
-import { Box, Button, Grid, TextField, Typography } from "@mui/material";
+import { Box, Button, Grid, IconButton, TextField, Typography } from "@mui/material";
 import React, { useContext, useState } from "react";
 import "./signInSignUp.css";
 import img1 from "../../assets/reading.svg";
 import img2 from "../../assets/writer.svg";
 import { FormContext } from "../context/formcontext";
+import KeyboardBackspaceIcon from '@mui/icons-material/KeyboardBackspace';
+import { useNavigate } from "react-router-dom";
 const SignInSignUp = () => {
 const {signUpMode,setSignUpMode}=useContext(FormContext);
 
@@ -14,6 +16,7 @@ const {signUpMode,setSignUpMode}=useContext(FormContext);
   const [usernameError, setUsernameError] = useState(false);
   const [passwordError, setPasswordError] = useState(false);
   const [emailError, setEmailError] = useState(false);
+  const navigate=useNavigate();
   const clearValidates = () => {
     setEmailError(false);
     setUsernameError(false);
@@ -243,6 +246,11 @@ const {signUpMode,setSignUpMode}=useContext(FormContext);
           </figure>
         </Box>
       </Grid>
+      <IconButton onClick={()=>{
+        navigate("..")
+      }} style={{position:"fixed",top:"30px",left:"40px",zIndex:"10"}} aria-label="delete" size="small">
+        <KeyboardBackspaceIcon fontSize="large" />
+      </IconButton>
     </Grid>
   );
 };
