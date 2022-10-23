@@ -1,13 +1,17 @@
 import { useQuery } from "@apollo/client";
 import { Avatar, colors, Container, Grid, Typography } from "@mui/material";
 import React from "react";
-import { useParams } from "react-router-dom";
+import ArrowBackRoundedIcon from '@mui/icons-material/ArrowBackRounded';
+
+import { useParams,useNavigate } from "react-router-dom";
 import BlogCard from "../cards/card";
 import { GET_AUTHOR } from "../graphql/queries";
 import spinner from '../../assets/Spinner.gif'
 import * as sanitizeHtml from 'sanitize-html';
 const AuthorsDetail = () => {
   const params = useParams();
+  const navigate=useNavigate();
+
   console.log(params);
   const { loading, data, error } = useQuery(GET_AUTHOR, {
     variables: { authorSlug: params.slug },
@@ -21,6 +25,7 @@ const AuthorsDetail = () => {
   return (
     <Container maxWidth="lg">
       <Grid mt={10} container>
+      <ArrowBackRoundedIcon style={{position:"fixed",left:"50px",top:"70px",cursor:"pointer"}} onClick={()=>navigate(-1)}/>
         <Grid
           item
           display="flex"
@@ -60,7 +65,7 @@ const AuthorsDetail = () => {
         <Grid container spacing={2} mt={2}>
           {data.author.posts.map((post) => {
             return(
-            <Grid  item xs={12} sm={6} md={4}>
+            <Grid mb={8} item xs={12} sm={6} md={4}>
               <BlogCard
                 
                 cover={post.cover}

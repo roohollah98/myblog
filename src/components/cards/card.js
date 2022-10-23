@@ -63,7 +63,7 @@ const BlogCard = ({ author, cover, title, slug }) => {
             fullWidth
             variant="outlined"
           >
-            مطالعه مقالات
+            مطالعه مقاله
           </Button>
         </Link>
       </CardActions>

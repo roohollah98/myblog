@@ -1,0 +1,11 @@
+
+.btnRegister:hover{
+    background: #c409c4  !important;
+    transition: 0.4s ease-in-out !important;
+    border: none !important;
+}
+.btnChangeMode:hover{
+    background: #0c3969   !important;
+    transition: 0.4s ease-in-out !important;
+    
+}

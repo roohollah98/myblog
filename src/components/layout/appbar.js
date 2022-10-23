@@ -7,10 +7,11 @@ import AutoStoriesIcon from "@mui/icons-material/AutoStories";
 import { Button, Container } from "@mui/material";
 import { Link, useNavigate, useParams } from "react-router-dom";
 import { FormContext } from "../context/formcontext";
+import "./layout.css";
 
 export default function Header() {
   const navigate = useNavigate();
-const {setSignUpMode}=useContext(FormContext);
+  const { setSignUpMode } = useContext(FormContext);
 
   return (
     <AppBar position="sticky">
@@ -37,7 +38,13 @@ const {setSignUpMode}=useContext(FormContext);
 
           <nav>
             <Button
-              sx={{ color: "#fff", border: "1px solid #fff" }}
+              className="btnRegister"
+              sx={{
+                background: "#4d9df4",
+                border: "none",
+                color: "#fff",
+                transition: "0.4s ease-in-out",
+              }}
               variant="outlined"
               onClick={() => {
                 navigate("/signInSignUp");
@@ -46,7 +53,13 @@ const {setSignUpMode}=useContext(FormContext);
             >
               ثبت نام
             </Button>
-            <Link onClick={()=>{setSignUpMode(false)}} to="/signInSignUp" style={{ margin: "0 10px" }} >
+            <Link
+              onClick={() => {
+                setSignUpMode(false);
+              }}
+              to="/signInSignUp"
+              style={{ margin: "0 10px" }}
+            >
               ورود
             </Link>
           </nav>
