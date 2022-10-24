@@ -8,7 +8,7 @@ import Layout from "../layout";
 const HomePage = () => {
   return (
        <Layout>
-    <Container maxWidth="lg">
+    <Container  maxWidth="lg">
       <Grid container padding={3} spacing={1}  >
         <Grid  item xs={12} md={3} >
           <Typography>نویسنده ها</Typography>

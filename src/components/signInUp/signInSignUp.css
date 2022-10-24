@@ -128,7 +128,7 @@ form.SignUpForm{
         flex-direction: column !important;
     }
     .container .panels .rightPanel{
-        transform: translateY(-100%);
+        transform: translateY(-70%);
         z-index: 8;
     }
 
@@ -163,12 +163,12 @@ font-size: 1.5rem;
     }
 
 .container .leftPanel .content,.container .leftPanel figure{
-    transform: translateY(700px);
+    transform: translateY(900px);
 
 }
 
 .container.sign-up-mode .leftPanel figure,.container.sign-up-mode .leftPanel .content{
-transform:translateY(500px);
+transform:translateY(600px);
 
 }
 

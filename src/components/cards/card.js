@@ -37,6 +37,7 @@ const BlogCard = ({ author, cover, title, slug }) => {
         component="img"
         height="200"
         image={cover.url}
+        sx={{objectFit:"fill"}}
         alt="cover"
         width="100%"
       />

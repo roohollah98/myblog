@@ -258,7 +258,7 @@ const SignInSignUp = () => {
         onClick={() => {
           navigate("..");
         }}
-        style={{ position: "fixed", top: "30px", left: "40px", zIndex: "10" }}
+        style={{ position: "fixed", top: "25px", left: "25px", zIndex: "10" }}
         aria-label="delete"
         size="small"
       >
